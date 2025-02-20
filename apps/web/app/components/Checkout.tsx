@@ -1,7 +1,9 @@
 "use client";
 
-import { CrossmintEmbeddedCheckout } from "@crossmint/client-sdk-react-ui";
-import { useDynamicContext } from "@dynamic-labs/sdk-react-core";
+import {
+  CrossmintEmbeddedCheckout,
+  useDynamicContext,
+} from "@dynamic-demo/config";
 
 const collectionId = process.env.NEXT_PUBLIC_CROSSMINT_COLLECTION_ID as string;
 
