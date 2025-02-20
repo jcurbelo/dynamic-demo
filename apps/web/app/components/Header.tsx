@@ -1,6 +1,6 @@
 "use client";
 
-import { DynamicWidget } from "@dynamic-labs/sdk-react-core";
+import { DynamicWidget } from "@dynamic-demo/config";
 
 export function Header() {
   return (
