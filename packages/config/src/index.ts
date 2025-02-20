@@ -1,7 +1,6 @@
-import { DynamicWagmiConnector } from '@dynamic-labs/wagmi-connector';
-import { CrossmintEmbeddedCheckout } from '@crossmint/client-sdk-react-ui';
 import { createConfig, http } from 'wagmi';
 import { mainnet } from 'wagmi/chains';
+import { EthereumWalletConnectors } from '@dynamic-labs/ethereum';
 
 export const wagmiConfig = createConfig({
   chains: [mainnet],
@@ -10,14 +9,30 @@ export const wagmiConfig = createConfig({
   },
 });
 
-export const dynamicConfig = {
-  environmentId: process.env.NEXT_PUBLIC_DYNAMIC_ENVIRONMENT_ID || '',
-  settings: {
-    walletConnectors: [DynamicWagmiConnector],
-  },
+export type DynamicConfigSettings = {
+  environmentId: string;
+  walletConnectors: typeof EthereumWalletConnectors[];
 };
 
-export const crossmintConfig = {
-  projectId: process.env.NEXT_PUBLIC_CROSSMINT_PROJECT_ID || '',
-  Checkout: CrossmintEmbeddedCheckout,
-}; 
+export type CrossmintConfigSettings = {
+  apiKey: string;
+};
+
+export const createDynamicConfig = (settings: DynamicConfigSettings) => ({
+  settings: {
+    environmentId: settings.environmentId,
+    walletConnectors: [EthereumWalletConnectors],
+  },
+});
+
+export const createCrossmintConfig = (settings: CrossmintConfigSettings) => ({
+  apiKey: settings.apiKey,
+});
+
+// Export specific components and types we need
+export { DynamicContextProvider } from '@dynamic-labs/sdk-react-core';
+export { DynamicWagmiConnector } from '@dynamic-labs/wagmi-connector';
+export { WagmiProvider } from 'wagmi';
+export { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+export { CrossmintProvider } from '@crossmint/client-sdk-react-ui';
+export { EthereumWalletConnectors } from '@dynamic-labs/ethereum'; 

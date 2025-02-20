@@ -6,26 +6,32 @@
   "module": "./dist/index.mjs",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsup src/index.ts --format cjs,esm --dts",
-    "dev": "tsup src/index.ts --format cjs,esm --dts --watch",
+    "build": "tsup",
+    "dev": "tsup --watch",
     "lint": "eslint src/",
     "clean": "rm -rf dist"
   },
   "dependencies": {
-    "@crossmint/client-sdk-react-ui": "^1.1.2",
+    "@crossmint/client-sdk-react-ui": "^1.14.7",
     "@dynamic-labs/sdk-react-core": "^4.6.3",
     "@dynamic-labs/wagmi-connector": "^4.6.3",
     "@dynamic-labs/ethereum": "^4.6.3",
+    "@tanstack/react-query": "^5.0.0",
     "viem": "^2.7.9",
     "wagmi": "^2.5.7"
   },
   "devDependencies": {
     "typescript": "^5",
     "tsup": "^8.0.2",
-    "@types/node": "^20"
+    "@types/node": "^20",
+    "@types/react": "^18"
   },
   "peerDependencies": {
     "react": "^18",
     "react-dom": "^18"
+  },
+  "optionalDependencies": {
+    "encoding": "^0.1.13",
+    "pino-pretty": "^10.3.1"
   }
 } 

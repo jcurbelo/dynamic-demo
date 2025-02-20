@@ -1,10 +1,8 @@
-"use client";
+import Checkout from "@/app/components/Checkout";
+import { Header } from "@/app/components/Header";
+import { Providers } from "@/app/providers";
 
-import { Providers } from "./providers";
-import { Header } from "./components/Header";
-import Checkout from "./components/Checkout";
-
-export default function App() {
+export default function Home() {
   return (
     <Providers>
       <main className="min-h-screen">
